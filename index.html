@@ -65,14 +65,7 @@
     </footer>
     
     <script>
-        document.addEventListener("visibilitychange", function () {
-            if (document.hidden) {
-                document.title = "Не пропустите важные IT-новости!";
-            } else {
-                document.title = "Новости IT и ПО | Свежие технологии";
-            }
-        });
-        
+               
         function shareOnSocial(media) {
             let url = encodeURIComponent(window.location.href);
             let text = encodeURIComponent("Свежие IT-новости, кибербезопасность, тренды программирования!");
@@ -89,17 +82,7 @@
         document.getElementById("scrollTop").addEventListener("click", function () {
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
-        
-        document.getElementById("loadMore").addEventListener("click", function () {
-            let newArticle = document.createElement("article");
-            newArticle.innerHTML = `
-                <h3>ИИ и программирование</h3>
-                <p>Как искусственный интеллект помогает разработчикам писать код?</p>
-                <a href="#">Читать далее</a>
-            `;
-            document.getElementById("newsContainer").appendChild(newArticle);
-        });
-        
+                
     </script>
     
 </body>
