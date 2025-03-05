@@ -12,6 +12,7 @@
 <body>
     <header>
         <h1>Новости IT и ПО</h1>
+        <button id="themeToggle">Переключить тему</button>
     </header>
     <nav>
         <ul>
@@ -24,13 +25,15 @@
     <main>
         <section id="latest">
             <h2>Последние новости IT</h2>
-            <article>
-                <h3>Новый ИИ от OpenAI изменит индустрию</h3>
-                <img src="./jpg/ai-news.png" alt="Изображение искусственного интеллекта">
-                <p>OpenAI представила новую модель искусственного интеллекта, которая обещает революцию в обработке естественного языка...</p>
-                <a href="#">Читать далее</a>
-                <p>Читайте больше на <a href="https://habr.com/ru/news/">Habr</a></p>
-            </article>
+            <section id="newsContainer">
+                <article>
+                    <h3>Новый ИИ от OpenAI изменит индустрию</h3>
+                    <img src="./jpg/ai-news.png" alt="Изображение искусственного интеллекта">
+                    <p>OpenAI представила новую модель искусственного интеллекта, которая обещает революцию в обработке естественного языка...</p>
+                    <a href="#">Читать далее</a>
+                </article>
+            </section>
+            <button id="loadMore">Загрузить больше</button>
         </section>
         <section id="security">
             <h2>Кибербезопасность</h2>
@@ -39,7 +42,6 @@
                 <img src="./jpg/security.png" alt="Защита данных и кибербезопасность">
                 <p>Microsoft выпустила обновление безопасности, закрывающее критическую уязвимость, которая угрожает миллионам пользователей...</p>
                 <a href="#">Читать далее</a>
-                <p>Узнайте больше на <a href="https://3dnews.ru/">3DNews</a></p>
             </article>
         </section>
         <section id="development">
@@ -49,7 +51,6 @@
                 <img src="./jpg/coding.png" alt="Код на экране компьютера">
                 <p>Эксперты определили самые востребованные языки программирования, которые стоит изучить в этом году...</p>
                 <a href="#">Читать далее</a>
-                <p>Читайте больше на <a href="https://devby.io/">Dev.by</a></p>
             </article>
         </section>
     </main>
@@ -57,10 +58,59 @@
         <p>&copy; 2025 Новости IT и ПО. Все права защищены.</p>
         <div class="social-share">
             <p>Поделиться:</p>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com" target="_blank">Facebook</a> |
-            <a href="https://twitter.com/intent/tweet?url=https://yourwebsite.com&text=Читайте%20новости%20IT" target="_blank">Twitter</a> |
-            <a href="https://t.me/share/url?url=https://yourwebsite.com" target="_blank">Telegram</a>
+            <a href="#" onclick="shareOnSocial('facebook')">Facebook</a> |
+            <a href="#" onclick="shareOnSocial('twitter')">Twitter</a> |
+            <a href="#" onclick="shareOnSocial('telegram')">Telegram</a>
         </div>
+        <button id="scrollTop">Наверх</button>
     </footer>
+    
+    <script>
+        document.addEventListener("visibilitychange", function () {
+            if (document.hidden) {
+                document.title = "Не пропустите важные IT-новости!";
+            } else {
+                document.title = "Новости IT и ПО | Свежие технологии";
+            }
+        });
+        
+        function shareOnSocial(media) {
+            let url = encodeURIComponent(window.location.href);
+            let text = encodeURIComponent("Свежие IT-новости, кибербезопасность, тренды программирования!");
+
+            let shareUrls = {
+                facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+                twitter: `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
+                telegram: `https://t.me/share/url?url=${url}&text=${text}`
+            };
+
+            window.open(shareUrls[media], "_blank");
+        }
+        
+        document.getElementById("scrollTop").addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        
+        document.getElementById("loadMore").addEventListener("click", function () {
+            let newArticle = document.createElement("article");
+            newArticle.innerHTML = `
+                <h3>ИИ и программирование</h3>
+                <p>Как искусственный интеллект помогает разработчикам писать код?</p>
+                <a href="#">Читать далее</a>
+            `;
+            document.getElementById("newsContainer").appendChild(newArticle);
+        });
+        
+        document.getElementById("themeToggle").addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+        });
+    </script>
+    
+    <style>
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+    </style>
 </body>
 </html>
