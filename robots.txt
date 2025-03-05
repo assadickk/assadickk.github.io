@@ -6,4 +6,16 @@ Disallow: /cgi-bin/
 
 Allow: /
 
+# Для Google
+User-agent: Googlebot
+Allow: /
+
+# Для Яндекса
+User-agent: Yandex
+Allow: /
+
+# Указываем путь к карте сайта
 Sitemap: https://example.com/sitemap.xml
+
+# Указываем, где находится файл проверки прав для Яндекс.Вебмастер и Google Search Console
+Host: https://example.com
