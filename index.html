@@ -8,6 +8,18 @@
     <meta name="author" content="IT News">
     <title>Новости IT и ПО | Актуальные события в мире технологий</title>
     <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- Микроразметка для всего сайта -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Новости IT и ПО",
+        "url": "https://example.com",
+        "description": "Свежие новости из мира IT и программного обеспечения."
+    }
+    </script>
+
 </head>
 <body>
     <header>
@@ -22,33 +34,36 @@
         </ul>
     </nav>
     <main>
-        <section id="latest">
+        <!-- Микроразметка для раздела последних новостей -->
+        <section id="latest" itemscope itemtype="https://schema.org/NewsArticle">
             <h2>Последние новости IT</h2>
             <section id="newsContainer">
-                <article>
-                    <h3>Новый ИИ от OpenAI изменит индустрию</h3>
-                    <img src="./jpg/ai-news.png" alt="Изображение искусственного интеллекта">
-                    <p>OpenAI представила новую модель искусственного интеллекта, которая обещает революцию в обработке естественного языка...</p>
-                    <a href="#">Читать далее</a>
+                <article itemprop="articleBody">
+                    <h3 itemprop="headline">Новый ИИ от OpenAI изменит индустрию</h3>
+                    <img src="./jpg/ai-news.png" alt="Изображение искусственного интеллекта" itemprop="image">
+                    <p itemprop="description">OpenAI представила новую модель искусственного интеллекта, которая обещает революцию в обработке естественного языка...</p>
+                    <a href="#" itemprop="url">Читать далее</a>
                 </article>
             </section>
         </section>
-        <section id="security">
+        <!-- Микроразметка для раздела кибербезопасности -->
+        <section id="security" itemscope itemtype="https://schema.org/NewsArticle">
             <h2>Кибербезопасность</h2>
-            <article>
-                <h3>Новая уязвимость в Windows</h3>
-                <img src="./jpg/security.png" alt="Защита данных и кибербезопасность">
-                <p>Microsoft выпустила обновление безопасности, закрывающее критическую уязвимость, которая угрожает миллионам пользователей...</p>
-                <a href="#">Читать далее</a>
+            <article itemprop="articleBody">
+                <h3 itemprop="headline">Новая уязвимость в Windows</h3>
+                <img src="./jpg/security.png" alt="Защита данных и кибербезопасность" itemprop="image">
+                <p itemprop="description">Microsoft выпустила обновление безопасности, закрывающее критическую уязвимость, которая угрожает миллионам пользователей...</p>
+                <a href="#" itemprop="url">Читать далее</a>
             </article>
         </section>
-        <section id="development">
+        <!-- Микроразметка для раздела разработки ПО -->
+        <section id="development" itemscope itemtype="https://schema.org/NewsArticle">
             <h2>Разработка программного обеспечения</h2>
-            <article>
-                <h3>Популярные языки программирования 2025 года</h3>
-                <img src="./jpg/coding.png" alt="Код на экране компьютера">
-                <p>Эксперты определили самые востребованные языки программирования, которые стоит изучить в этом году...</p>
-                <a href="#">Читать далее</a>
+            <article itemprop="articleBody">
+                <h3 itemprop="headline">Популярные языки программирования 2025 года</h3>
+                <img src="./jpg/coding.png" alt="Код на экране компьютера" itemprop="image">
+                <p itemprop="description">Эксперты определили самые востребованные языки программирования, которые стоит изучить в этом году...</p>
+                <a href="#" itemprop="url">Читать далее</a>
             </article>
         </section>
     </main>
@@ -64,7 +79,6 @@
     </footer>
     
     <script>
-               
         function shareOnSocial(media) {
             let url = encodeURIComponent(window.location.href);
             let text = encodeURIComponent("Свежие IT-новости, кибербезопасность, тренды программирования!");
@@ -83,6 +97,5 @@
         });
                 
     </script>
-    
 </body>
 </html>
